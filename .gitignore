@@ -1,0 +1,6 @@
+.vscode/
+data/
+saved_model/*
+*.o
+demo
+fnames
