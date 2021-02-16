@@ -2,20 +2,22 @@
 
 double _GaussianSample();
 
-void matmul_seq(matrix* result, matrix* x, matrix* y) {
-    assert(x->shape[1] == y->shape[0]);
-    assert(result->shape[0] == x->shape[0] && result->shape[1] == y->shape[1]);
 
-    for (int i=0; i<x->shape[0]; i++) {
-        for (int j=0; j<y->shape[1]; j++) {
-            result->array[i][j] = 0;
+// void matmul(matrix* result, matrix* x, matrix* y) {
+//     assert(x->shape[1] == y->shape[0]);
+//     assert(result->shape[0] == x->shape[0] && result->shape[1] == y->shape[1]);
+
+//     for (int i=0; i<x->shape[0]; i++) {
+//         for (int j=0; j<y->shape[1]; j++) {
+//             result->array[i][j] = 0;
             
-            for (int a=0; a<x->shape[1]; a++) {
-                result->array[i][j] += x->array[i][a] * y->array[a][j];
-            }
-        }
-    }
-}
+//             for (int a=0; a<x->shape[1]; a++) {
+//                 result->array[i][j] += x->array[i][a] * y->array[a][j];
+//             }
+//         }
+//     }
+// }
+
 
 void matmul(matrix* result, matrix* A, matrix* B) {
     assert(A->shape[1] == B->shape[0]);
@@ -34,7 +36,7 @@ void matmul(matrix* result, matrix* A, matrix* B) {
 
             for(k = 0; k < A->shape[1]; ++k) {
                 
-                for(j = 0; j < result->shape[1]; ++j){
+                for(j = 0; j < result->shape[1]; ++j) {
                     result->array[i][j] += A->array[i][k] * B->array[k][j];
                 }
             }

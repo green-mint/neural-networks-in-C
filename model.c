@@ -66,11 +66,13 @@ void train_model(model* m, matrix* X , matrix* y, double learning_rate, int epoc
         propogate_back_model(m,m->layers[m->num_layers - 1]->A,y,X);
         update_parameters_model(m,learning_rate);
         if ((i+1) % 50 == 0) {
+            printf("\033[0;35m");
             printf("Loss after %03d iterations: %lf  ",i+1,calculate_cost(m->layers[m->num_layers - 1]->A,y));
             predict_model(m,X,predictions);
             score(predictions,y,false);
         }
     }
+    printf("\033[0;37m");
     
 }
 

@@ -19,12 +19,12 @@ int main() {
     for (int i=0; i<demo_imgs; i++) {
         if (predictions->array[0][i]) {
             printf("\033[0;32m");
-            printf("%-70s is ",filenames[i]);
+            printf("%-40s is ",filenames[i]);
             printf("a cat\n");
         }
         else {
             printf("\033[0;31m");
-            printf("%-70s is ",filenames[i]);
+            printf("%-40s is ",filenames[i]);
             printf("not a cat\n");
         }
     }

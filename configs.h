@@ -1,6 +1,5 @@
 #include <stdbool.h>
 
-#define DEMO_IMGS 9
 #define TEST_EXAMPLES 50
 #define TRAIN_EXAMPLES 209
 #define N_FEATURES 12288

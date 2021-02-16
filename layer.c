@@ -61,8 +61,6 @@ matrix* propogate_backward_layer(layer *l, matrix*A_prev, matrix* dA, matrix* dA
         matmul(dA_prev,l->trans_W,l->dZ);    
     }
     
-    //dW = scale(element_wise(matmul(dZ,transpose(l->cache[0])),scale(l->weights,lambda),'+'),1.0/m);
-    //printf("VALUE: %lf\n",A_prev->array[0][0]);
     transpose(l->trans_A_prev,A_prev);
     matmul(l->prod_dZ_trans_A_prev,l->dZ,l->trans_A_prev);
     
@@ -85,10 +83,6 @@ void update_parameters_layer(layer *l, double learning_rate) {
     scale(l->scaled_db,l->db,-(learning_rate));
     element_wise(l->bias,l->bias,l->scaled_db,'+');
 }
-
-
-
-
 
 void free_layer(layer *l) {
     free_matrix(l->bias);
